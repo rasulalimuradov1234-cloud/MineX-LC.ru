@@ -268,32 +268,15 @@
             cursor: pointer;
             text-decoration: none;
             font-size: 1.1rem;
+            flex-shrink: 0;
             font-weight: 900;
+flex-shrink: 0;
             transition: transform 0.3s, background 0.3s;
         }
         .btn-modal-download:hover {
             transform: scale(1.1);
             background: linear-gradient(45deg, #651fff, #a020f0);
             color: #fff;
-        }
-
-        /* Стиль для версии 1.0.6 (В разработке) */
-        .version-item.in-development {
-            border-style: dashed;
-            opacity: 0.8;
-        }
-        .version-item.in-development:hover {
-            border-color: #651fff;
-        }
-        .badge-dev {
-            font-size: 0.8rem;
-            font-weight: 800;
-            color: #b388ff;
-            background: rgba(101, 31, 255, 0.2);
-            border: 1px solid #651fff;
-            padding: 6px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
         }
 
         /* СЛАЙДЕР С ОБНОВЛЕННОЙ 3D АНИМАЦИЕЙ (ИЗ ПАПКИ ASSETS) */
@@ -493,7 +476,7 @@
                 <div class="version-item">
                     <div class="version-info">
                         <h4>MineX LC v1.0.4</h4>
-                        <p>Базовая галерея (3 фото) и интеграция Modrinth API</p>
+                        <p>Новые загрущики интеграция Modrinth обновленый разделAPI</p>
                     </div>
                     <a href="versions/MineX-LC-Setup-1.0.4.exe" download="MineX-LC-Setup-1.0.4.exe" class="btn-modal-download">
                         <i class="fas fa-download"></i>
@@ -502,18 +485,20 @@
                 <div class="version-item">
                     <div class="version-info">
                         <h4>MineX LC v1.0.5</h4>
-                        <p>Новый раздел «Скины», 6 фото и 3D Flip анимация</p>
+                        <p>Новый раздел «Скины»</p>
                     </div>
                     <a href="versions/MineX-LC-Setup-1.0.5.exe" download="MineX-LC-Setup-1.0.5.exe" class="btn-modal-download">
                         <i class="fas fa-download"></i>
                     </a>
                 </div>
-                <div class="version-item in-development">
+                <div class="version-item">
                     <div class="version-info">
                         <h4>MineX LC v1.0.5+</h4>
-                        <p>???</p>
+                        <p>Обновленный раздел скины и добавлен загрузчик скинов</p>
                     </div>
-                    <span class="badge-dev">В разработке</span>
+                    <a href="versions/MineX-LC-Setup-1.0.5+.exe" download="MineX-LC-Setup-1.0.5+.exe" class="btn-modal-download">
+                        <i class="fas fa-download"></i>
+                    </a>
                 </div>
             </div>
         </div>
