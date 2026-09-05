@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MineX LC — Лаунчер Нового Поколения</title>
+    <meta name="description" content="MineX LC v1.0.6 — Minecraft-лаунчер с Vanilla, Fabric, Quilt, Forge и NeoForge, Modrinth, скинами, Wiki, ИИ-помощником и анализатором сбоев.">
+    <title>MineX LC v1.0.6 — современный Minecraft-лаунчер</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     
@@ -50,6 +51,7 @@
             transition: background 0.5s ease, color 0.5s ease;
         }
 
+        /* Фоновый Canvas со звездами-частицами */
         #particles-canvas {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -57,6 +59,7 @@
             pointer-events: none;
         }
 
+        /* Плавное появление элементов при прокрутке */
         .reveal {
             opacity: 0;
             transform: translateY(35px);
@@ -67,6 +70,7 @@
             transform: translateY(0);
         }
 
+        /* Анимированный светящийся логотип MineX LC */
         .logo {
             font-size: 28px;
             font-weight: 900;
@@ -82,6 +86,7 @@
             50% { filter: drop-shadow(0 0 14px rgba(101,31,255,0.7)); transform: translateY(-2px) scale(1.03); }
         }
 
+        /* Настоящий стеклянный интерфейс шапки */
         header {
             display: flex;
             justify-content: space-between;
@@ -102,6 +107,7 @@
         }
         .nav-menu a:hover { color: #00e5ff; }
 
+        /* Кнопка переключения темы */
         .theme-toggle {
             background: none; border: none; font-size: 1.4rem;
             color: var(--text-color); transition: transform 0.3s ease;
@@ -109,6 +115,7 @@
         }
         .theme-toggle:hover { transform: scale(1.2) rotate(15deg); }
 
+        /* Главный экран */
         .hero {
             min-height: 100vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -121,6 +128,7 @@
         }
         .hero p { font-size: 1.45rem; color: var(--text-muted); max-width: 900px; line-height: 1.7; margin-bottom: 45px; }
 
+        /* Кнопки скачивания */
         .download-actions {
             display: flex;
             gap: 20px;
@@ -130,6 +138,94 @@
             flex-wrap: wrap;
         }
 
+
+        .release-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            margin-bottom: 26px;
+            border-radius: 999px;
+            background: rgba(0, 229, 255, 0.08);
+            border: 1px solid rgba(0, 229, 255, 0.22);
+            color: #00e5ff;
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+        }
+        .release-badge i { color: #4ade80; }
+
+        .latest-badge {
+            display: inline-block;
+            margin-left: 8px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(74, 222, 128, 0.14);
+            border: 1px solid rgba(74, 222, 128, 0.28);
+            color: #4ade80;
+            font-size: 0.72rem;
+            font-weight: 900;
+            vertical-align: middle;
+        }
+
+
+        .platform-downloads {
+            display: flex;
+            gap: 14px;
+            align-items: stretch;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-download.mac {
+            background: linear-gradient(45deg, #f3f4f6, #cbd5e1);
+            color: #111827;
+            box-shadow: 0 0 25px rgba(203, 213, 225, 0.18);
+        }
+
+        .btn-download.mac:hover {
+            color: #fff;
+            background: linear-gradient(45deg, #651fff, #a020f0);
+            box-shadow: 0 0 45px rgba(101, 31, 255, 0.45);
+        }
+
+        .download-note {
+            width: 100%;
+            margin-top: -2px;
+            color: var(--text-muted);
+            font-size: .88rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .version-platform-actions {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .btn-modal-download.platform {
+            width: auto;
+            min-width: 42px;
+            padding: 0 12px;
+            gap: 7px;
+            border-radius: 13px;
+            font-size: .78rem;
+        }
+
+        .btn-modal-download.platform.mac {
+            background: linear-gradient(45deg, #e5e7eb, #cbd5e1);
+            color: #111827;
+        }
+
+        @media (max-width: 768px) {
+            .platform-downloads { flex-direction: column; width: 100%; }
+            .platform-downloads .btn-download { width: 100%; justify-content: center; }
+            .version-item { align-items: flex-start; gap: 14px; }
+            .version-platform-actions { flex-wrap: wrap; justify-content: flex-end; }
+        }
+
+        /* Кнопка "Скачать" */
         .btn-download {
             display: inline-flex; align-items: center; gap: 15px;
             background: linear-gradient(45deg, #00e5ff, #00b0ff);
@@ -151,6 +247,7 @@
             box-shadow: 0 0 45px rgba(101, 31, 255, 0.6);
         }
 
+        /* Кнопка "Версии" */
         .btn-versions {
             display: inline-flex; align-items: center; gap: 12px;
             background: var(--btn-gray);
@@ -165,6 +262,7 @@
             transform: translateY(-2px);
         }
 
+        /* МОДАЛЬНОЕ ОКНО С ВЕРСИЯМИ */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -258,8 +356,9 @@
             cursor: pointer;
             text-decoration: none;
             font-size: 1.1rem;
+            flex-shrink: 0;
             font-weight: 900;
-            flex-shrink: 0; /* Защита от сжатия при длинном описании */
+flex-shrink: 0;
             transition: transform 0.3s, background 0.3s;
         }
         .btn-modal-download:hover {
@@ -268,6 +367,7 @@
             color: #fff;
         }
 
+        /* СЛАЙДЕР С ОБНОВЛЕННОЙ 3D АНИМАЦИЕЙ (ИЗ ПАПКИ ASSETS) */
         .slider-container {
             position: relative;
             max-width: 900px;
@@ -317,6 +417,7 @@
             z-index: 1;
         }
 
+        /* Кнопки навигации слайдера */
         .slider-btn {
             position: absolute;
             top: 50%;
@@ -340,6 +441,7 @@
         .slider-btn.prev { left: -25px; }
         .slider-btn.next { right: -25px; }
 
+        /* Карточки контента */
         .glass-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -363,6 +465,7 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
+        /* Сетки разметки */
         .news-section, .steps-section, .features-container, .faq-section, .specs-section, .community-section {
             padding: 100px 8%;
         }
@@ -377,6 +480,7 @@
         }
         .icon-box i { font-size: 2.2rem; color: #00e5ff; }
 
+        /* Полки версий Minecraft */
         .versions-shelf { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 25px; }
         .version-badge {
             padding: 8px 16px; background: var(--glass-bg); border: 1px solid var(--glass-border);
@@ -384,6 +488,7 @@
         }
         .version-badge:hover { background: #00e5ff; color: #000; transform: scale(1.1); }
 
+        /* Шаги быстрого старта */
         .step-card { position: relative; }
         .step-number {
             position: absolute; top: -25px; left: 50%; transform: translateX(-50%);
@@ -392,6 +497,7 @@
             font-weight: 900; font-size: 1.3rem; color: #fff;
         }
 
+        /* Требования и FAQ */
         .specs-box { max-width: 800px; margin: 0 auto; }
         .spec-item { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid var(--glass-border); font-size: 1.2rem; }
         .faq-container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
@@ -411,6 +517,7 @@
             border: 1px solid #651fff; color: #b388ff; border-radius: 30px; font-size: 0.85rem; font-weight: 700; margin-bottom: 15px; width: fit-content;
         }
 
+        /* Кнопка "Наверх" */
         .back-to-top {
             position: fixed;
             bottom: 30px; right: 30px;
@@ -456,17 +563,37 @@
             <div class="version-list">
                 <div class="version-item">
                     <div class="version-info">
-                        <h4>MineX LC v1.0.4</h4>
-                        <p>Новые загрущики интеграция Modrinth API</p>
+                        <h4>MineX LC v1.0.6 <span class="latest-badge">АКТУАЛЬНАЯ</span></h4>
+                        <p>Новый интерфейс настроек, отдельный splash-экран, улучшенные скины, Modrinth, Wiki, анализатор сбоев, последние миры и расширенная персонализация.</p>
                     </div>
-                    <a href="versions/MineX-LC-Setup-1.0.4.exe" download="MineX-LC-Setup-1.0.4.exe" class="btn-modal-download">
+                    <div class="version-platform-actions">
+                    <a href="versions/MineX-LC-Setup-1.0.6.exe"
+                       download="MineX-LC-Setup-1.0.6.exe"
+                       class="btn-modal-download platform"
+                       title="Windows">
+                        <i class="fab fa-windows"></i>
+                    </a>
+                    <a href="versions/MineX-LC-1.0.6-macOS-universal.dmg"
+                       download="MineX-LC-1.0.6-macOS-universal.dmg"
+                       class="btn-modal-download platform mac"
+                       title="macOS Universal — Intel + Apple Silicon">
+                        <i class="fab fa-apple"></i> Mac
+                    </a>
+                </div>
+                </div>
+                <div class="version-item">
+                    <div class="version-info">
+                        <h4>MineX LC v1.0.5+</h4>
+                        <p>Обновлённый раздел скинов и поддержка загрузчика пользовательских скинов.</p>
+                    </div>
+                    <a href="versions/MineX-LC-Setup-1.0.5+.exe" download="MineX-LC-Setup-1.0.5+.exe" class="btn-modal-download">
                         <i class="fas fa-download"></i>
                     </a>
                 </div>
                 <div class="version-item">
                     <div class="version-info">
                         <h4>MineX LC v1.0.5</h4>
-                        <p>Новый раздел «Скины»</p>
+                        <p>Добавлен отдельный раздел «Скины» и улучшена работа профилей.</p>
                     </div>
                     <a href="versions/MineX-LC-Setup-1.0.5.exe" download="MineX-LC-Setup-1.0.5.exe" class="btn-modal-download">
                         <i class="fas fa-download"></i>
@@ -474,10 +601,10 @@
                 </div>
                 <div class="version-item">
                     <div class="version-info">
-                        <h4>MineX LC v1.0.5+</h4>
-                        <p>Обновленный раздел скины был обновлен и добавьвлен загрущик скинов</p>
+                        <h4>MineX LC v1.0.4</h4>
+                        <p>Интеграция Modrinth и расширенная поддержка загрузчиков Minecraft.</p>
                     </div>
-                    <a href="versions/MineX-LC-Setup-1.0.5+.exe" download="MineX-LC-Setup-1.0.5+.exe" class="btn-modal-download">
+                    <a href="versions/MineX-LC-Setup-1.0.4.exe" download="MineX-LC-Setup-1.0.4.exe" class="btn-modal-download">
                         <i class="fas fa-download"></i>
                     </a>
                 </div>
@@ -500,13 +627,16 @@
 
     <section class="hero">
         <h1>Добро пожаловать в MineX LC</h1>
-        <p>Современный лаунчер нового поколения для Minecraft. Запускай любимые версии игры, устанавливай моды в несколько кликов без сложных настроек благодаря Modrinth API.</p>
+        <div class="release-badge"><i class="fas fa-circle-check"></i> Актуальная версия — MineX LC v1.0.6</div>
+        <p>Современный Minecraft-лаунчер для Windows и macOS с поддержкой Vanilla, Fabric, Quilt, Forge и NeoForge. Устанавливай моды и модпаки через Modrinth, выбирай скины, пользуйся встроенной Wiki, ИИ-помощником и автоматическим анализатором сбоев.</p>
         
         <div class="download-actions">
-            <!-- Главная кнопка теперь скачивает версию 1.0.5+ -->
-            <a href="versions/MineX-LC-Setup-1.0.5+.exe" download="MineX-LC-Setup-1.0.5+.exe" class="btn-download">
+            <a href="versions/MineX-LC-Setup-1.0.6.exe"
+               download="MineX-LC-Setup-1.0.6.exe"
+               class="btn-download">
                 <i class="fab fa-windows"></i> Скачать для Windows
             </a>
+
             <button class="btn-versions" id="openModalBtn" style="padding: 12px 25px; font-size: 1rem;">
                 <i class="fas fa-code-branch"></i> Версии
             </button>
@@ -529,33 +659,38 @@
     </section>
 
     <section class="news-section reveal" id="news">
-        <h2 class="section-title">Последние обновления</h2>
+        <h2 class="section-title">Что нового в MineX LC v1.0.6</h2>
         <div class="news-grid">
             <div class="glass-card">
                 <span class="news-tag">MineX Обновление</span>
-                <h3>Патч лаунчера v1.0.5</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Стабильный релиз программы! Повышена общая оптимизация, исправлены мелкие баги загрузки ресурсов и улучшена интеграция с серверами авторизации.</p>
+                <h3>MineX LC v1.0.6</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Большое обновление интерфейса и стабильности: отдельный загрузочный splash-экран, обновлённые настройки, улучшенная боковая панель и сохранение персонализации.</p>
             </div>
             <div class="glass-card">
-                <span class="news-tag">Minecraft Новости</span>
-                <h3>Доступен новый снапшот</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">В лаунчере уже доступна свежая тестовая сборка Mojang. Проверь новые кубические фишки прямо сейчас!</p>
+                <span class="news-tag">Моды и модпаки</span>
+                <h3>Modrinth стал ещё удобнее</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Просматривай содержимое модпака, открывай обычную страницу нужного мода и скачивай совместимые версии прямо из MineX LC.</p>
             </div>
             <div class="glass-card">
-                <span class="news-tag">Анонс</span>
-                <h3>Старт разработки v1.0.5+</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Официально запущен внутренний закрытый тест будущей версии 1.0.5+. Статус разработки вы можете отслеживать в окне версий.</p>
+                <span class="news-tag">Скины</span>
+                <h3>Большая галерея скинов</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Каталог с несколькими страницами скинов, ускоренная загрузка превью, кэширование и поддержка собственного PNG-скина.</p>
+            </div>
+            <div class="glass-card">
+                <span class="news-tag">Помощник</span>
+                <h3>Умнее работа с ошибками</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">MineX LC умеет анализировать crash-report, показывать понятную причину сбоя и предлагать безопасное исправление для некоторых проблем.</p>
             </div>
             <div class="glass-card" style="grid-column: 1 / -1;">
-                <h3>Версии Minecraft в Лаунчере</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Мы поддерживаем моментальный запуск всех классических и новейших версий:</p>
+                <h3>Поддержка Minecraft</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Лаунчер получает список версий из официального манифеста Minecraft и поддерживает релизы, снапшоты и старые ветки с несколькими загрузчиками.</p>
                 <div class="versions-shelf">
-                    <span class="version-badge">26.2</span>
-                    <span class="version-badge">26.1</span>
-                    <span class="version-badge">1.21.X</span>
-                    <span class="version-badge">1.20.X</span>
-                    <span class="version-badge">1.19.X</span>
-                    <span class="version-badge">И так далее</span>
+                    <span class="version-badge">Vanilla</span>
+                    <span class="version-badge">Fabric</span>
+                    <span class="version-badge">Quilt</span>
+                    <span class="version-badge">Forge</span>
+                    <span class="version-badge">NeoForge</span>
+                    <span class="version-badge">Snapshots</span>
                 </div>
             </div>
         </div>
@@ -574,49 +709,84 @@
                 <div class="step-number">2</div>
                 <i class="fas fa-user-plus" style="font-size: 2.5rem; color: #00e5ff; margin: 15px 0 20px 0;"></i>
                 <h3>Зарегистрируйся</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Запусти приложение и сразу пройди быструю регистрацию аккаунта на главном экране.</p>
+                <p style="color: var(--text-muted); margin-top: 10px;">Запусти MineX LC, создай или выбери локальный профиль и настрой внешний вид лаунчера под себя.</p>
             </div>
             <div class="glass-card step-card" style="text-align: center;">
                 <div class="step-number">3</div>
                 <i class="fas fa-gamepad" style="font-size: 2.5rem; color: #00e5ff; margin: 15px 0 20px 0;"></i>
                 <h3>Играй!</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Выбери любую версию Minecraft или сборку, нажми «Играть» и наслаждайся!</p>
+                <p style="color: var(--text-muted); margin-top: 10px;">Выбери версию Minecraft и нужный загрузчик — MineX LC подготовит запуск и покажет прогресс прямо в интерфейсе.</p>
             </div>
         </div>
     </section>
 
     <section class="features-container reveal" id="features">
-        <h2 class="section-title">Функции лаунчера</h2>
+        <h2 class="section-title">Функции MineX LC v1.0.6</h2>
         <div class="features-grid">
             <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-bolt"></i></div>
-                <h3>Высокая скорость</h3>
-                <p style="color: var(--text-muted)">Моментальный запуск игр и потрясающая плавность интерфейса. Забудь про долгие ожидания загрузки.</p>
+                <div class="icon-box"><i class="fas fa-layer-group"></i></div>
+                <h3>5 загрузчиков</h3>
+                <p style="color: var(--text-muted)">Vanilla, Fabric, Quilt, Forge и NeoForge — выбирай нужный вариант прямо перед запуском.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fab fa-apple"></i></div>
+                <h3>Windows и macOS</h3>
+                <p style="color: var(--text-muted)">Один Universal-установщик для Mac работает и на Intel, и на Apple Silicon (M1/M2/M3/M4 и новее). Windows собирается отдельно.</p>
             </div>
             <div class="glass-card">
                 <div class="icon-box"><i class="fas fa-cubes"></i></div>
-                <h3>Моддинг в клик</h3>
-                <p style="color: var(--text-muted)">Полная поддержка систем Forge, NeoForge и Fabric. Устанавливай любые дополнения без лишней возни.</p>
+                <h3>Modrinth: моды и модпаки</h3>
+                <p style="color: var(--text-muted)">Поиск, версии, установка модов, просмотр содержимого модпаков и переход к обычному окну скачивания конкретного мода.</p>
             </div>
             <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-magic"></i></div>
-                <h3>Авто-настройка Java</h3>
-                <p style="color: var(--text-muted)">Умный алгоритм сам найдет, скачает и настроит правильную версию Java для выбранной тобой сборки.</p>
+                <div class="icon-box"><i class="fas fa-user-astronaut"></i></div>
+                <h3>Скины</h3>
+                <p style="color: var(--text-muted)">Большая галерея скинов, ускоренная загрузка, кэш страниц и возможность использовать собственный PNG-скин.</p>
             </div>
             <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-user-shield"></i></div>
-                <h3>Удобные аккаунты</h3>
-                <p style="color: var(--text-muted)">Быстрое и безопасное переключение между игровыми профилями. Играй под своими любимыми никнеймами.</p>
+                <div class="icon-box"><i class="fas fa-mug-hot"></i></div>
+                <h3>Java и совместимость</h3>
+                <p style="color: var(--text-muted)">MineX LC показывает найденные Java, помогает подобрать подходящую версию и отслеживает проблемы совместимости при запуске.</p>
             </div>
             <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-database"></i></div>
-                <h3>База Modrinth</h3>
-                <p style="color: var(--text-muted)">Прямой доступ к тысячам официально выложенных модов через Modrinth API. Только безопасный и проверенный контент.</p>
+                <div class="icon-box"><i class="fas fa-screwdriver-wrench"></i></div>
+                <h3>Анализатор сбоев</h3>
+                <p style="color: var(--text-muted)">После краша лаунчер читает crash-report, объясняет вероятную причину и для поддерживаемых случаев предлагает «Попробовать исправить».</p>
             </div>
             <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-sync-alt"></i></div>
-                <h3>Всегда актуален</h3>
-                <p style="color: var(--text-muted)">Автоматические обновления контента гарантируют моментальный доступ ко всем самым свежим релизам.</p>
+                <div class="icon-box"><i class="fas fa-book-open"></i></div>
+                <h3>Minecraft Wiki</h3>
+                <p style="color: var(--text-muted)">Встроенная Wiki работает как мини-браузер: поиск, назад, вперёд, обновление, быстрые темы и переходы из рецептов.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-wand-magic-sparkles"></i></div>
+                <h3>Умные рецепты</h3>
+                <p style="color: var(--text-muted)">На главной могут отображаться рецепты Minecraft и крафты из установленных модов — например Create, если он найден в сборке.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-robot"></i></div>
+                <h3>ИИ-помощник</h3>
+                <p style="color: var(--text-muted)">Встроенный помощник поддерживает облачные AI-провайдеры, включая OpenRouter, и помогает разбираться с Minecraft, модами и ошибками.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-palette"></i></div>
+                <h3>Персонализация</h3>
+                <p style="color: var(--text-muted)">Светлая и тёмная тема, собственные обои с прозрачностью, несколько языков интерфейса и современный дизайн настроек.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-clock-rotate-left"></i></div>
+                <h3>Последние миры</h3>
+                <p style="color: var(--text-muted)">На главной отображаются последние миры с версией и быстрым запуском выбранного сохранения.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-bolt"></i></div>
+                <h3>Fabric Essentials</h3>
+                <p style="color: var(--text-muted)">Опциональная автоматическая установка совместимых Fabric API и Mod Menu под выбранную версию Fabric.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-gauge-high"></i></div>
+                <h3>Плавная загрузка</h3>
+                <p style="color: var(--text-muted)">Отдельный splash-экран скрывает постепенную загрузку данных и открывает основное окно MineX LC уже после подготовки.</p>
             </div>
         </div>
     </section>
@@ -632,12 +802,27 @@
             <div class="faq-item glass-card" style="padding:0;">
                 <input type="checkbox" id="faq-2" class="faq-input">
                 <label for="faq-2" class="faq-question">Нужно ли отдельно скачивать Java? <i class="fas fa-chevron-down"></i></label>
-                <div class="faq-answer">Нет, лаунчер имеет встроенный интеллектуальный модуль, который автоматически определяет нужную версию Java и загружает её сам.</div>
+                <div class="faq-answer">MineX LC показывает найденные версии Java и помогает использовать совместимую Java для выбранной версии Minecraft. Если подходящей Java нет, лаунчер сообщит об этом.</div>
             </div>
             <div class="faq-item glass-card" style="padding:0;">
                 <input type="checkbox" id="faq-3" class="faq-input">
                 <label for="faq-3" class="faq-question">Ваш лаунчер быстро запускает игру? <i class="fas fa-chevron-down"></i></label>
-                <div class="faq-answer">Да, MineX LC довольно быстро запускает игру, не более 2 минут.</div>
+                <div class="faq-answer">Скорость зависит от интернета, выбранной версии, модов и мощности ПК. Повторные запуски обычно быстрее, потому что уже загруженные файлы используются повторно.</div>
+            </div>
+            <div class="faq-item glass-card" style="padding:0;">
+                <input type="checkbox" id="faq-4" class="faq-input">
+                <label for="faq-4" class="faq-question">Можно ли устанавливать моды и модпаки прямо из MineX LC? <i class="fas fa-chevron-down"></i></label>
+                <div class="faq-answer">Да. Встроенный каталог Modrinth позволяет находить моды и модпаки, выбирать версии и устанавливать их без ручного поиска файлов по сайтам.</div>
+            </div>
+            <div class="faq-item glass-card" style="padding:0;">
+                <input type="checkbox" id="faq-5" class="faq-input">
+                <label for="faq-5" class="faq-question">Что делать, если Minecraft вылетел? <i class="fas fa-chevron-down"></i></label>
+                <div class="faq-answer">MineX LC может прочитать последний crash-report, показать вероятную причину сбоя и для некоторых проблем предложить безопасное автоматическое исправление.</div>
+            </div>
+            <div class="faq-item glass-card" style="padding:0;">
+                <input type="checkbox" id="faq-6" class="faq-input">
+                <label for="faq-6" class="faq-question">Работает ли MineX LC на Mac? <i class="fas fa-chevron-down"></i></label>
+                <div class="faq-answer">Да. В разделе «Версии» доступен один Universal `.dmg`, который подходит и для Intel Mac, и для Apple Silicon (M1/M2/M3/M4 и новее).</div>
             </div>
         </div>
     </section>
@@ -645,27 +830,28 @@
     <section class="specs-section reveal" id="specs">
         <h2 class="section-title">Системные требования</h2>
         <div class="specs-box glass-card">
-            <div class="spec-item"><span class="spec-label">Операционная система</span><span class="spec-value">Windows 10 / 11 (64-bit)</span></div>
+            <div class="spec-item"><span class="spec-label">Операционная система</span><span class="spec-value">Windows 10 / 11 (64-bit) или macOS (Intel / Apple Silicon)</span></div>
             <div class="spec-item"><span class="spec-label">Процессор (CPU)</span><span class="spec-value">Intel Core i3 или AMD Ryzen 3 и лучше</span></div>
             <div class="spec-item"><span class="spec-label">Оперативная память (RAM)</span><span class="spec-value">4 GB (Рекомендуется 8 GB)</span></div>
-            <div class="spec-item"><span class="spec-label">Видеокарта (GPU)</span><span class="spec-value">С поддержкой OpenGL 4.4 и выше</span></div>
-            <div class="spec-item"><span class="spec-label">Место на диске</span><span class="spec-value">~ 1 GB (зависит от количества модов)</span></div>
+            <div class="spec-item"><span class="spec-label">Видеокарта (GPU)</span><span class="spec-value">Совместимая с выбранной версией Minecraft; для модов и шейдеров требования выше</span></div>
+            <div class="spec-item"><span class="spec-label">Место на диске</span><span class="spec-value">От 2 GB свободного места; версии, миры, моды и модпаки требуют дополнительное место</span></div>
         </div>
     </section>
 
     <section class="community-section reveal" style="text-align: center;">
         <h2 class="section-title">Наше сообщество</h2>
         <p style="font-size: 1.3rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-            Общайся с другими игроками, участвуй в ивентах и получай самую быструю техподдержку в нашем Discord!
+            Присоединяйся к сообществу MineX LC: обсуждай обновления, делись сборками, сообщай о багах и получай помощь по лаунчеру.
         </p>
-        <a href="https://discord.gg/kkm3uc28AZ" class="btn-discord" target="_blank"><i class="fab fa-discord"></i> Наш Discord</a>
+        <a href="https://discord.gg/t2e64FJXY3" class="btn-discord" target="_blank"><i class="fab fa-discord"></i> Наш Discord</a>
     </section>
 
     <footer>
-        &copy; 2026 MineX LC. Все права защищены. Не является официальным продуктом Mojang Studios.
+        &copy; 2026 MineX LC v1.0.6. Все права защищены. MineX LC не является официальным продуктом Mojang Studios или Microsoft.
     </footer>
 
     <script>
+        /* 1. Фоновые частицы */
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -709,6 +895,7 @@
         }
         animateParticles();
 
+        /* 2. 3D Наклон сцены при движении мыши */
         const sliderScene = document.getElementById('launcher-scene');
         document.addEventListener('mousemove', (e) => {
             const xAxis = (window.innerWidth / 2 - e.clientX) / 50;
@@ -716,6 +903,7 @@
             sliderScene.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
         });
 
+        /* 3. ЛОГИКА СЛАЙДЕРА (3D FLIP) */
         const slides = document.querySelectorAll('.launcher-slide');
         const btnPrev = document.getElementById('slidePrev');
         const btnNext = document.getElementById('slideNext');
@@ -751,6 +939,7 @@
             changeSlide(index);
         });
 
+        /* 4. Кнопка "Наверх" */
         const scrollTopBtn = document.getElementById('scrollTopBtn');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 400) scrollTopBtn.classList.add('show');
@@ -758,6 +947,7 @@
         });
         scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+        /* 5. Плавное появление блоков при скролле */
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) entry.target.classList.add('active');
@@ -765,6 +955,7 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+        /* 6. Переключатель тем */
         const themeBtn = document.getElementById('theme-btn');
         themeBtn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -773,6 +964,7 @@
             themeBtn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
         });
 
+        /* 7. Окно выбора версий */
         const modal = document.getElementById('versionsModal');
         const openModalBtn = document.getElementById('openModalBtn');
         const closeModalBtn = document.getElementById('closeModalBtn');
