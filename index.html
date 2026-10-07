@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MineX LC v1.0.6 — Minecraft-лаунчер с Vanilla, Fabric, Quilt, Forge и NeoForge, Modrinth, скинами, Wiki, ИИ-помощником и анализатором сбоев.">
-    <title>MineX LC v1.0.6 — современный Minecraft-лаунчер</title>
+    <meta name="description" content="MineX LC v1.0.7 — Minecraft-лаунчер для Windows с Vanilla, Fabric, Quilt, Forge и NeoForge, e4all Online Mode, Modrinth, улучшенными скинами, Crash Helper, Fabric Essentials и рекомендуемыми серверами.">
+    <title>MineX LC v1.0.7 — Minecraft Launcher для Windows</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     
@@ -320,6 +320,26 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+
+            /* Старые версии ниже — до 1.0.4 нужно прокрутить список */
+            max-height: min(470px, calc(100vh - 230px));
+            overflow-y: auto;
+            padding-right: 8px;
+            overscroll-behavior: contain;
+            scrollbar-width: thin;
+            scrollbar-color: #00bfff rgba(255,255,255,.05);
+        }
+
+        .version-list::-webkit-scrollbar {
+            width: 7px;
+        }
+        .version-list::-webkit-scrollbar-track {
+            background: rgba(255,255,255,.04);
+            border-radius: 999px;
+        }
+        .version-list::-webkit-scrollbar-thumb {
+            background: linear-gradient(#00e5ff, #2979ff);
+            border-radius: 999px;
         }
         .version-item {
             display: flex;
@@ -563,24 +583,32 @@ flex-shrink: 0;
             <div class="version-list">
                 <div class="version-item">
                     <div class="version-info">
-                        <h4>MineX LC v1.0.6 <span class="latest-badge">АКТУАЛЬНАЯ</span></h4>
-                        <p>Новый интерфейс настроек, отдельный splash-экран, улучшенные скины, Modrinth, Wiki, анализатор сбоев, последние миры и расширенная персонализация.</p>
+                        <h4>MineX LC v1.0.7 <span class="latest-badge">АКТУАЛЬНАЯ</span></h4>
+                        <p>Большое обновление 1.0.7: e4all Online Mode, обновлённый раздел скинов, рекомендуемые серверы с копированием IP, улучшенный Crash Helper и Fabric Essentials для совместимых версий.</p>
                     </div>
                     <div class="version-platform-actions">
-                    <a href="versions/MineX-LC-Setup-1.0.6.exe"
-                       download="MineX-LC-Setup-1.0.6.exe"
+                    <a href="versions/MineX-LC-Setup-1.0.7.exe"
+                       download="MineX-LC-Setup-1.0.7.exe"
                        class="btn-modal-download platform"
                        title="Windows">
                         <i class="fab fa-windows"></i>
                     </a>
-                    <a href="versions/MineX-LC-1.0.6-macOS-universal.dmg"
-                       download="MineX-LC-1.0.6-macOS-universal.dmg"
-                       class="btn-modal-download platform mac"
-                       title="macOS Universal — Intel + Apple Silicon">
-                        <i class="fab fa-apple"></i> Mac
+                </div>
+                </div>
+
+                <div class="version-item">
+                    <div class="version-info">
+                        <h4>MineX LC v1.0.6</h4>
+                        <p>Большое обновление интерфейса и стабильности: splash-экран, улучшенные настройки, скины, Modrinth, Wiki, Crash Helper и персонализация.</p>
+                    </div>
+                    <a href="versions/MineX-LC-Setup-1.0.6.exe"
+                       download="MineX-LC-Setup-1.0.6.exe"
+                       class="btn-modal-download"
+                       title="Скачать MineX LC v1.0.6">
+                        <i class="fas fa-download"></i>
                     </a>
                 </div>
-                </div>
+
                 <div class="version-item">
                     <div class="version-info">
                         <h4>MineX LC v1.0.5+</h4>
@@ -627,12 +655,12 @@ flex-shrink: 0;
 
     <section class="hero">
         <h1>Добро пожаловать в MineX LC</h1>
-        <div class="release-badge"><i class="fas fa-circle-check"></i> Актуальная версия — MineX LC v1.0.6</div>
-        <p>Современный Minecraft-лаунчер для Windows и macOS с поддержкой Vanilla, Fabric, Quilt, Forge и NeoForge. Устанавливай моды и модпаки через Modrinth, выбирай скины, пользуйся встроенной Wiki, ИИ-помощником и автоматическим анализатором сбоев.</p>
+        <div class="release-badge"><i class="fas fa-circle-check"></i> Актуальная версия — MineX LC v1.0.7</div>
+        <p>MineX LC 1.0.7 — современный Minecraft-лаунчер для Windows. Запускай Vanilla, Fabric, Quilt, Forge и NeoForge, устанавливай моды и модпаки через Modrinth, используй e4all для игры с друзьями, выбирай скины, подключай Fabric Essentials и получай помощь Crash Helper после вылетов.</p>
         
         <div class="download-actions">
-            <a href="versions/MineX-LC-Setup-1.0.6.exe"
-               download="MineX-LC-Setup-1.0.6.exe"
+            <a href="versions/MineX-LC-Setup-1.0.7.exe"
+               download="MineX-LC-Setup-1.0.7.exe"
                class="btn-download">
                 <i class="fab fa-windows"></i> Скачать для Windows
             </a>
@@ -646,12 +674,14 @@ flex-shrink: 0;
             <button class="slider-btn prev" id="slidePrev"><i class="fas fa-chevron-left"></i></button>
             <div class="scene3d" id="launcher-scene">
                 <div class="slider-wrapper">
-                    <img src="assets/launcher1.jpg" alt="Скриншот Лаунчера 1" class="launcher-slide active">
-                    <img src="assets/launcher2.jpg" alt="Скриншот Лаунчера 2" class="launcher-slide">
-                    <img src="assets/launcher3.jpg" alt="Скриншот Лаунчера 3" class="launcher-slide">
-                    <img src="assets/launcher4.jpg" alt="Скриншот Лаунчера 4" class="launcher-slide">
-                    <img src="assets/launcher5.jpg" alt="Скриншот Лаунчера 5" class="launcher-slide">
-                    <img src="assets/launcher6.jpg" alt="Скриншот Лаунчины 6" class="launcher-slide">
+                    <img src="assets/launcher1.jpg" alt="MineX LC 1.0.7 — Главная" class="launcher-slide active">
+                    <img src="assets/launcher2.jpg" alt="MineX LC 1.0.7 — Моды и Modrinth" class="launcher-slide">
+                    <img src="assets/launcher3.jpg" alt="MineX LC 1.0.7 — Новый раздел скинов" class="launcher-slide">
+                    <img src="assets/launcher4.jpg" alt="MineX LC 1.0.7 — Новости и Wiki" class="launcher-slide">
+                    <img src="assets/launcher5.jpg" alt="MineX LC 1.0.7 — Настройки" class="launcher-slide">
+                    <img src="assets/launcher6.jpg" alt="MineX LC 1.0.7 — Crash Helper" class="launcher-slide">
+                    <img src="assets/launcher7.jpg" alt="MineX LC 1.0.7 — e4all Online Mode" class="launcher-slide">
+                    <img src="assets/launcher8.jpg" alt="MineX LC 1.0.7 — Рекомендуемые серверы" class="launcher-slide">
                 </div>
             </div>
             <button class="slider-btn next" id="slideNext"><i class="fas fa-chevron-right"></i></button>
@@ -659,41 +689,51 @@ flex-shrink: 0;
     </section>
 
     <section class="news-section reveal" id="news">
-        <h2 class="section-title">Что нового в MineX LC v1.0.6</h2>
+        <h2 class="section-title">Что нового в MineX LC v1.0.7</h2>
         <div class="news-grid">
             <div class="glass-card">
                 <span class="news-tag">MineX Обновление</span>
-                <h3>MineX LC v1.0.6</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Большое обновление интерфейса и стабильности: отдельный загрузочный splash-экран, обновлённые настройки, улучшенная боковая панель и сохранение персонализации.</p>
+                <h3>MineX LC v1.0.7</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Большое обновление интерфейса и функций: новый Online Mode, переработанные скины, рекомендуемые серверы, улучшенный Crash Helper и обновлённая автоматизация Fabric.</p>
             </div>
             <div class="glass-card">
-                <span class="news-tag">Моды и модпаки</span>
-                <h3>Modrinth стал ещё удобнее</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Просматривай содержимое модпака, открывай обычную страницу нужного мода и скачивай совместимые версии прямо из MineX LC.</p>
+                <span class="news-tag">Онлайн</span>
+                <h3>e4all Online Mode</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Маленькая синяя кнопка рядом с «Играть» проверяет, доступен ли e4all для выбранных Minecraft и загрузчика. Совместимую версию можно установить прямо из MineX LC.</p>
             </div>
             <div class="glass-card">
                 <span class="news-tag">Скины</span>
-                <h3>Большая галерея скинов</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Каталог с несколькими страницами скинов, ускоренная загрузка превью, кэширование и поддержка собственного PNG-скина.</p>
+                <h3>Полностью новый визуал</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Раздел скинов стал намного современнее: новый просмотр персонажа, красивые карточки, поиск, пагинация и ускоренная загрузка галереи — без изменения привычной логики.</p>
+            </div>
+            <div class="glass-card">
+                <span class="news-tag">Серверы</span>
+                <h3>Рекомендуемые серверы</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">На главной показываются рекомендуемые Minecraft-серверы. Нажатие копирует IP, а список автоматически меняется каждые 15 секунд.</p>
+            </div>
+            <div class="glass-card">
+                <span class="news-tag">Fabric</span>
+                <h3>Fabric Essentials для разных версий</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">MineX LC подбирает совместимые Fabric API и Mod Menu под выбранную версию Minecraft, а не только под одну фиксированную версию.</p>
             </div>
             <div class="glass-card">
                 <span class="news-tag">Помощник</span>
-                <h3>Умнее работа с ошибками</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">MineX LC умеет анализировать crash-report, показывать понятную причину сбоя и предлагать безопасное исправление для некоторых проблем.</p>
+                <h3>Crash Helper стал полезнее</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">После вылета MineX LC анализирует crash-report и может предложить конкретное действие: проверить Java, моды, память, шейдеры или повреждённые файлы.</p>
             </div>
             <div class="glass-card" style="grid-column: 1 / -1;">
                 <h3>Поддержка Minecraft</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Лаунчер получает список версий из официального манифеста Minecraft и поддерживает релизы, снапшоты и старые ветки с несколькими загрузчиками.</p>
+                <p style="color: var(--text-muted); margin-top: 10px;">Выбирай нужную версию Minecraft и загрузчик. MineX LC поддерживает Vanilla, Fabric, Quilt, Forge и NeoForge и получает список версий из официальных источников.</p>
                 <div class="versions-shelf">
                     <span class="version-badge">Vanilla</span>
                     <span class="version-badge">Fabric</span>
                     <span class="version-badge">Quilt</span>
                     <span class="version-badge">Forge</span>
                     <span class="version-badge">NeoForge</span>
-                    <span class="version-badge">Snapshots</span>
+                    <span class="version-badge">e4all</span>
                 </div>
             </div>
-        </div>
+</div>
     </section>
 
     <section class="steps-section reveal">
@@ -702,91 +742,101 @@ flex-shrink: 0;
             <div class="glass-card step-card" style="text-align: center;">
                 <div class="step-number">1</div>
                 <i class="fas fa-download" style="font-size: 2.5rem; color: #00e5ff; margin: 15px 0 20px 0;"></i>
-                <h3>Скачай лаунчер</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Нажми на кнопку выше и сохрани установщик MineX LC на свой ПК.</p>
+                <h3>Скачай MineX LC</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Скачай актуальный установщик MineX LC 1.0.7 для Windows и установи лаунчер.</p>
             </div>
             <div class="glass-card step-card" style="text-align: center;">
                 <div class="step-number">2</div>
-                <i class="fas fa-user-plus" style="font-size: 2.5rem; color: #00e5ff; margin: 15px 0 20px 0;"></i>
-                <h3>Зарегистрируйся</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Запусти MineX LC, создай или выбери локальный профиль и настрой внешний вид лаунчера под себя.</p>
+                <i class="fas fa-sliders" style="font-size: 2.5rem; color: #00e5ff; margin: 15px 0 20px 0;"></i>
+                <h3>Настрой запуск</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Выбери Minecraft, загрузчик, память, Java, скин и при необходимости включи Fabric Essentials или e4all.</p>
             </div>
             <div class="glass-card step-card" style="text-align: center;">
                 <div class="step-number">3</div>
                 <i class="fas fa-gamepad" style="font-size: 2.5rem; color: #00e5ff; margin: 15px 0 20px 0;"></i>
-                <h3>Играй!</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Выбери версию Minecraft и нужный загрузчик — MineX LC подготовит запуск и покажет прогресс прямо в интерфейсе.</p>
+                <h3>Играй</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Нажми «Играть». MineX LC подготовит нужные компоненты и покажет процесс запуска прямо в интерфейсе.</p>
             </div>
         </div>
     </section>
 
     <section class="features-container reveal" id="features">
-        <h2 class="section-title">Функции MineX LC v1.0.6</h2>
+        <h2 class="section-title">Возможности MineX LC v1.0.7</h2>
         <div class="features-grid">
             <div class="glass-card">
                 <div class="icon-box"><i class="fas fa-layer-group"></i></div>
                 <h3>5 загрузчиков</h3>
-                <p style="color: var(--text-muted)">Vanilla, Fabric, Quilt, Forge и NeoForge — выбирай нужный вариант прямо перед запуском.</p>
+                <p style="color: var(--text-muted)">Vanilla, Fabric, Quilt, Forge и NeoForge. Версию и загрузчик можно менять прямо перед запуском.</p>
             </div>
             <div class="glass-card">
-                <div class="icon-box"><i class="fab fa-apple"></i></div>
-                <h3>Windows и macOS</h3>
-                <p style="color: var(--text-muted)">Один Universal-установщик для Mac работает и на Intel, и на Apple Silicon (M1/M2/M3/M4 и новее). Windows собирается отдельно.</p>
+                <div class="icon-box"><i class="fas fa-globe"></i></div>
+                <h3>e4all Online Mode</h3>
+                <p style="color: var(--text-muted)">MineX LC проверяет совместимость e4all с выбранной версией и загрузчиком и позволяет установить подходящую сборку прямо из лаунчера.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-server"></i></div>
+                <h3>Рекомендуемые серверы</h3>
+                <p style="color: var(--text-muted)">Список серверов меняется каждые 15 секунд. Нажми на сервер — его IP сразу скопируется в буфер обмена.</p>
             </div>
             <div class="glass-card">
                 <div class="icon-box"><i class="fas fa-cubes"></i></div>
-                <h3>Modrinth: моды и модпаки</h3>
-                <p style="color: var(--text-muted)">Поиск, версии, установка модов, просмотр содержимого модпаков и переход к обычному окну скачивания конкретного мода.</p>
+                <h3>Modrinth</h3>
+                <p style="color: var(--text-muted)">Ищи моды и модпаки, просматривай версии и содержимое модпаков и устанавливай совместимые файлы без ручного поиска.</p>
             </div>
             <div class="glass-card">
                 <div class="icon-box"><i class="fas fa-user-astronaut"></i></div>
-                <h3>Скины</h3>
-                <p style="color: var(--text-muted)">Большая галерея скинов, ускоренная загрузка, кэш страниц и возможность использовать собственный PNG-скин.</p>
-            </div>
-            <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-mug-hot"></i></div>
-                <h3>Java и совместимость</h3>
-                <p style="color: var(--text-muted)">MineX LC показывает найденные Java, помогает подобрать подходящую версию и отслеживает проблемы совместимости при запуске.</p>
-            </div>
-            <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-screwdriver-wrench"></i></div>
-                <h3>Анализатор сбоев</h3>
-                <p style="color: var(--text-muted)">После краша лаунчер читает crash-report, объясняет вероятную причину и для поддерживаемых случаев предлагает «Попробовать исправить».</p>
-            </div>
-            <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-book-open"></i></div>
-                <h3>Minecraft Wiki</h3>
-                <p style="color: var(--text-muted)">Встроенная Wiki работает как мини-браузер: поиск, назад, вперёд, обновление, быстрые темы и переходы из рецептов.</p>
-            </div>
-            <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-wand-magic-sparkles"></i></div>
-                <h3>Умные рецепты</h3>
-                <p style="color: var(--text-muted)">На главной могут отображаться рецепты Minecraft и крафты из установленных модов — например Create, если он найден в сборке.</p>
-            </div>
-            <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-robot"></i></div>
-                <h3>ИИ-помощник</h3>
-                <p style="color: var(--text-muted)">Встроенный помощник поддерживает облачные AI-провайдеры, включая OpenRouter, и помогает разбираться с Minecraft, модами и ошибками.</p>
-            </div>
-            <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-palette"></i></div>
-                <h3>Персонализация</h3>
-                <p style="color: var(--text-muted)">Светлая и тёмная тема, собственные обои с прозрачностью, несколько языков интерфейса и современный дизайн настроек.</p>
-            </div>
-            <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-clock-rotate-left"></i></div>
-                <h3>Последние миры</h3>
-                <p style="color: var(--text-muted)">На главной отображаются последние миры с версией и быстрым запуском выбранного сохранения.</p>
+                <h3>Новый раздел скинов</h3>
+                <p style="color: var(--text-muted)">Обновлённый визуал, галерея NameMC, поиск, страницы, просмотр персонажа и возможность использовать собственный PNG-скин.</p>
             </div>
             <div class="glass-card">
                 <div class="icon-box"><i class="fas fa-bolt"></i></div>
                 <h3>Fabric Essentials</h3>
-                <p style="color: var(--text-muted)">Опциональная автоматическая установка совместимых Fabric API и Mod Menu под выбранную версию Fabric.</p>
+                <p style="color: var(--text-muted)">Автоматический подбор и установка совместимых Fabric API и Mod Menu именно под выбранную версию Minecraft.</p>
             </div>
             <div class="glass-card">
-                <div class="icon-box"><i class="fas fa-gauge-high"></i></div>
-                <h3>Плавная загрузка</h3>
-                <p style="color: var(--text-muted)">Отдельный splash-экран скрывает постепенную загрузку данных и открывает основное окно MineX LC уже после подготовки.</p>
+                <div class="icon-box"><i class="fas fa-screwdriver-wrench"></i></div>
+                <h3>Crash Helper</h3>
+                <p style="color: var(--text-muted)">Анализирует последний crash-report, объясняет вероятную причину и для поддерживаемых проблем предлагает конкретное исправление.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-mug-hot"></i></div>
+                <h3>Java Manager</h3>
+                <p style="color: var(--text-muted)">Показывает найденные версии Java и помогает выбрать подходящую Java под конкретную версию Minecraft.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-book-open"></i></div>
+                <h3>Встроенная Wiki</h3>
+                <p style="color: var(--text-muted)">Мини-браузер Minecraft Wiki с поиском, назад/вперёд, обновлением, историей и быстрыми темами.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-wand-magic-sparkles"></i></div>
+                <h3>Рецепты и моды</h3>
+                <p style="color: var(--text-muted)">На главной могут показываться обычные рецепты и крафты из найденных модов, например Create.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-robot"></i></div>
+                <h3>ИИ-помощник</h3>
+                <p style="color: var(--text-muted)">Помощник через поддерживаемые AI-провайдеры, включая OpenRouter, помогает с Minecraft, модами и ошибками.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-clock-rotate-left"></i></div>
+                <h3>Последние миры</h3>
+                <p style="color: var(--text-muted)">На главной отображаются последние сохранения с версией Minecraft и кнопкой быстрого запуска.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-palette"></i></div>
+                <h3>Персонализация</h3>
+                <p style="color: var(--text-muted)">Темы, собственные обои, прозрачность, несколько языков интерфейса и обновлённый дизайн настроек.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fas fa-arrows-rotate"></i></div>
+                <h3>Обновления MineX LC</h3>
+                <p style="color: var(--text-muted)">Лаунчер умеет проверять наличие новых версий MineX LC и показывать пользователю доступное обновление.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fab fa-windows"></i></div>
+                <h3>Windows 10 / 11</h3>
+                <p style="color: var(--text-muted)">Актуальная версия 1.0.7 распространяется как Windows-приложение для 64-битных систем.</p>
             </div>
         </div>
     </section>
@@ -796,33 +846,33 @@ flex-shrink: 0;
         <div class="faq-container">
             <div class="faq-item glass-card" style="padding:0;">
                 <input type="checkbox" id="faq-1" class="faq-input">
-                <label for="faq-1" class="faq-question">Лаунчер полностью бесплатный? <i class="fas fa-chevron-down"></i></label>
-                <div class="faq-answer">Да! MineX LC абсолютно бесплатен для скачивания и использования. Никаких скрытых подписок и платежей.</div>
+                <label for="faq-1" class="faq-question">MineX LC 1.0.7 бесплатный? <i class="fas fa-chevron-down"></i></label>
+                <div class="faq-answer">Да. MineX LC можно скачать и использовать бесплатно.</div>
             </div>
             <div class="faq-item glass-card" style="padding:0;">
                 <input type="checkbox" id="faq-2" class="faq-input">
-                <label for="faq-2" class="faq-question">Нужно ли отдельно скачивать Java? <i class="fas fa-chevron-down"></i></label>
-                <div class="faq-answer">MineX LC показывает найденные версии Java и помогает использовать совместимую Java для выбранной версии Minecraft. Если подходящей Java нет, лаунчер сообщит об этом.</div>
+                <label for="faq-2" class="faq-question">Какие загрузчики поддерживаются? <i class="fas fa-chevron-down"></i></label>
+                <div class="faq-answer">Vanilla, Fabric, Quilt, Forge и NeoForge. Доступность конкретной версии загрузчика зависит от выбранной версии Minecraft.</div>
             </div>
             <div class="faq-item glass-card" style="padding:0;">
                 <input type="checkbox" id="faq-3" class="faq-input">
-                <label for="faq-3" class="faq-question">Ваш лаунчер быстро запускает игру? <i class="fas fa-chevron-down"></i></label>
-                <div class="faq-answer">Скорость зависит от интернета, выбранной версии, модов и мощности ПК. Повторные запуски обычно быстрее, потому что уже загруженные файлы используются повторно.</div>
+                <label for="faq-3" class="faq-question">Что такое Online Mode / e4all? <i class="fas fa-chevron-down"></i></label>
+                <div class="faq-answer">Это функция MineX LC 1.0.7 для установки совместимой версии e4all под выбранные Minecraft и загрузчик. Она предназначена для удобной игры с друзьями через поддерживаемый LAN-туннель.</div>
             </div>
             <div class="faq-item glass-card" style="padding:0;">
                 <input type="checkbox" id="faq-4" class="faq-input">
-                <label for="faq-4" class="faq-question">Можно ли устанавливать моды и модпаки прямо из MineX LC? <i class="fas fa-chevron-down"></i></label>
-                <div class="faq-answer">Да. Встроенный каталог Modrinth позволяет находить моды и модпаки, выбирать версии и устанавливать их без ручного поиска файлов по сайтам.</div>
+                <label for="faq-4" class="faq-question">Можно устанавливать моды прямо из MineX LC? <i class="fas fa-chevron-down"></i></label>
+                <div class="faq-answer">Да. Встроенный каталог Modrinth позволяет искать моды и модпаки и устанавливать подходящие версии прямо из лаунчера.</div>
             </div>
             <div class="faq-item glass-card" style="padding:0;">
                 <input type="checkbox" id="faq-5" class="faq-input">
-                <label for="faq-5" class="faq-question">Что делать, если Minecraft вылетел? <i class="fas fa-chevron-down"></i></label>
-                <div class="faq-answer">MineX LC может прочитать последний crash-report, показать вероятную причину сбоя и для некоторых проблем предложить безопасное автоматическое исправление.</div>
+                <label for="faq-5" class="faq-question">Fabric Essentials работает на разных версиях? <i class="fas fa-chevron-down"></i></label>
+                <div class="faq-answer">Да. В 1.0.7 MineX LC подбирает совместимые Fabric API и Mod Menu под текущую выбранную версию, если такие файлы доступны.</div>
             </div>
             <div class="faq-item glass-card" style="padding:0;">
                 <input type="checkbox" id="faq-6" class="faq-input">
-                <label for="faq-6" class="faq-question">Работает ли MineX LC на Mac? <i class="fas fa-chevron-down"></i></label>
-                <div class="faq-answer">Да. В разделе «Версии» доступен один Universal `.dmg`, который подходит и для Intel Mac, и для Apple Silicon (M1/M2/M3/M4 и новее).</div>
+                <label for="faq-6" class="faq-question">Что делать после вылета Minecraft? <i class="fas fa-chevron-down"></i></label>
+                <div class="faq-answer">Открой Crash Helper. MineX LC анализирует crash-report и может подсказать, связана ли проблема с Java, памятью, модами, шейдерами или файлами игры.</div>
             </div>
         </div>
     </section>
@@ -830,24 +880,24 @@ flex-shrink: 0;
     <section class="specs-section reveal" id="specs">
         <h2 class="section-title">Системные требования</h2>
         <div class="specs-box glass-card">
-            <div class="spec-item"><span class="spec-label">Операционная система</span><span class="spec-value">Windows 10 / 11 (64-bit) или macOS (Intel / Apple Silicon)</span></div>
+            <div class="spec-item"><span class="spec-label">Операционная система</span><span class="spec-value">Windows 10 / 11, 64-bit</span></div>
             <div class="spec-item"><span class="spec-label">Процессор (CPU)</span><span class="spec-value">Intel Core i3 или AMD Ryzen 3 и лучше</span></div>
-            <div class="spec-item"><span class="spec-label">Оперативная память (RAM)</span><span class="spec-value">4 GB (Рекомендуется 8 GB)</span></div>
+            <div class="spec-item"><span class="spec-label">Оперативная память (RAM)</span><span class="spec-value">Минимум 4 GB, рекомендуется 8 GB и больше для модов</span></div>
             <div class="spec-item"><span class="spec-label">Видеокарта (GPU)</span><span class="spec-value">Совместимая с выбранной версией Minecraft; для модов и шейдеров требования выше</span></div>
-            <div class="spec-item"><span class="spec-label">Место на диске</span><span class="spec-value">От 2 GB свободного места; версии, миры, моды и модпаки требуют дополнительное место</span></div>
+            <div class="spec-item"><span class="spec-label">Место на диске</span><span class="spec-value">От 2 GB для лаунчера и базовой игры; моды, версии, миры и модпаки требуют дополнительное место</span></div>
         </div>
     </section>
 
     <section class="community-section reveal" style="text-align: center;">
         <h2 class="section-title">Наше сообщество</h2>
         <p style="font-size: 1.3rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-            Присоединяйся к сообществу MineX LC: обсуждай обновления, делись сборками, сообщай о багах и получай помощь по лаунчеру.
+            Присоединяйся к MineX LC: следи за обновлениями 1.0.7, сообщай о багах, делись идеями и получай помощь по лаунчеру.
         </p>
         <a href="https://discord.gg/t2e64FJXY3" class="btn-discord" target="_blank"><i class="fab fa-discord"></i> Наш Discord</a>
     </section>
 
     <footer>
-        &copy; 2026 MineX LC v1.0.6. Все права защищены. MineX LC не является официальным продуктом Mojang Studios или Microsoft.
+        &copy; 2026 MineX LC v1.0.7. Все права защищены. MineX LC не является официальным продуктом Mojang Studios или Microsoft.
     </footer>
 
     <script>
